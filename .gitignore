@@ -1,18 +1,46 @@
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.pyc
 .Python
+
+# Virtual environments
 venv/
 env/
 ENV/
 .venv
+
+# Application specific
 uploads/
+temp_*.xlsx
 *.db
+*.db-journal
+
+# Excel files (except template)
 *.xlsx
-!static/Шаблон.xlsx
+*.xls
+!static/file/Шаблон.xlsx
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Logs
 *.log
+
+# Flask
 instance/
 .webassets-cache
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Backups
+*_old.*
+*.bak
 
