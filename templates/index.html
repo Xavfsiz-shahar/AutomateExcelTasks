@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">Система учёта отчётов</title>
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='images/favicon.svg') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Анимация загрузки -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p class="loading-text" data-i18n="pleaseWait">Пожалуйста, подождите...</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="{{ url_for('static', filename='images/favicon.svg') }}" alt="Logo" class="logo">
+                </div>
+                <div class="header-text">
+                    <h1 data-i18n="systemTitle">Система учёта отчётов</h1>
+                    <p class="subtitle" data-i18n="systemSubtitle">Автоматизация Excel отчётов</p>
+                </div>
+            </div>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="ru">RU</button>
+                <button class="lang-btn" data-lang="uz">UZ</button>
+            </div>
+        </header>
+
+        <main>
+            <!-- Форма загрузки -->
+            <section class="upload-section">
+                <h2 data-i18n="uploadWeekly">Загрузка еженедельного отчёта</h2>
+                
+                <form id="uploadForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label data-i18n="month">Месяц:</label>
+                            <select id="month" required>
+                                <option value="" data-i18n="selectMonth">Выберите</option>
+                                <option value="1" data-i18n="january">Январь</option>
+                                <option value="2" data-i18n="february">Февраль</option>
+                                <option value="3" data-i18n="march">Март</option>
+                                <option value="4" data-i18n="april">Апрель</option>
+                                <option value="5" data-i18n="may">Май</option>
+                                <option value="6" data-i18n="june">Июнь</option>
+                                <option value="7" data-i18n="july">Июль</option>
+                                <option value="8" data-i18n="august">Август</option>
+                                <option value="9" data-i18n="september">Сентябрь</option>
+                                <option value="10" data-i18n="october">Октябрь</option>
+                                <option value="11" data-i18n="november">Ноябрь</option>
+                                <option value="12" data-i18n="december">Декабрь</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label data-i18n="year">Год:</label>
+                            <input type="number" id="year" min="2020" max="2100" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label data-i18n="file">Файл:</label>
+                        <input type="file" id="fileInput" accept=".xlsx,.xls" required>
+                        <small data-i18n="supportedFormats">Поддерживаются форматы: .xlsx, .xls</small>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="btn btn-primary">
+                        <span id="btnText" data-i18n="upload">Загрузить</span>
+                        <span id="btnLoader" class="loader" style="display: none;"></span>
+                    </button>
+                </form>
+
+                <div id="message" class="message"></div>
+            </section>
+
+            <!-- Список месячных отчётов -->
+            <section class="reports-section">
+                <div class="section-header">
+                    <h2 data-i18n="monthlyReports">Месячные отчёты</h2>
+                    <button id="refreshBtn" class="btn btn-secondary" data-i18n="refresh">Обновить</button>
+                </div>
+                
+                <div id="reportsContainer">
+                    <div class="loading" data-i18n="loading">Загрузка...</div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 <span data-i18n="footerText">Система учёта отчётов</span></p>
+        </footer>
+    </div>
+
+    <!-- Модальное окно подтверждения удаления -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 data-i18n="confirmDelete">Подтверждение удаления</h3>
+                <button class="btn-close" onclick="closeConfirmModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p data-i18n="deleteConfirmText">Вы уверены, что хотите удалить этот отчёт?</p>
+                <p id="deleteFileName" style="font-weight: 600; margin-top: 10px;"></p>
+                <div class="modal-actions">
+                    <button class="btn btn-danger" id="confirmDeleteBtn" data-i18n="delete">Удалить</button>
+                    <button class="btn btn-secondary" onclick="closeConfirmModal()" data-i18n="cancel">Отмена</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/i18n.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,644 @@
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Переменные - строгая деловая палитра */
+:root {
+    --bg-color: #f4f6f9;
+    --primary-color: #1a1a2e;
+    --primary-hover: #16213e;
+    --secondary-color: #0f3460;
+    --accent-color: #16a085;
+    --danger-color: #c0392b;
+    --white: #ffffff;
+    --text-color: #2c3e50;
+    --text-secondary: #7f8c8d;
+    --border-color: #dfe6e9;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Основные стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 25px;
+}
+
+/* Заголовок */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 35px 45px;
+    margin-bottom: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-container {
+    width: 65px;
+    height: 65px;
+    background-color: var(--white);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.header-text {
+    display: flex;
+    flex-direction: column;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.5px;
+}
+
+.subtitle {
+    font-size: 17px;
+    opacity: 0.85;
+    margin-top: 6px;
+    font-weight: 400;
+}
+
+/* Переключатель языка */
+.language-switcher {
+    display: flex;
+    gap: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 4px;
+    border-radius: 8px;
+}
+
+.lang-btn {
+    background-color: transparent;
+    color: var(--white);
+    border: none;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 16px;
+}
+
+.lang-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.lang-btn.active {
+    background-color: var(--white);
+    color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Основной контент */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+section {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    transition: box-shadow 0.3s ease;
+}
+
+section:hover {
+    box-shadow: var(--card-shadow-hover);
+}
+
+section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.section-header h2 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* Форма */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 17px;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group select {
+    padding: 16px 18px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: all 0.2s ease;
+    background-color: var(--white);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(15, 52, 96, 0.08);
+}
+
+.form-group input[type="file"] {
+    padding: 10px;
+    cursor: pointer;
+    border-style: dashed;
+}
+
+.form-group small {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Кнопки */
+.btn {
+    padding: 16px 32px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--white);
+    width: 100%;
+    margin-top: 12px;
+    box-shadow: 0 4px 12px rgba(22, 160, 133, 0.25);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #138d75;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(22, 160, 133, 0.35);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    box-shadow: 0 2px 6px rgba(15, 52, 96, 0.2);
+}
+
+.btn-secondary:hover {
+    background-color: #0c2847;
+    transform: translateY(-1px);
+}
+
+.btn-download {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 24px;
+    font-size: 15px;
+    box-shadow: 0 2px 6px rgba(26, 26, 46, 0.2);
+}
+
+.btn-download:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-small {
+    padding: 12px 24px;
+    font-size: 15px;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: var(--white);
+    box-shadow: 0 2px 6px rgba(192, 57, 43, 0.2);
+}
+
+.btn-danger:hover {
+    background-color: #a93226;
+    transform: translateY(-1px);
+}
+
+/* Loader */
+.loader {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--white);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Сообщения */
+.message {
+    margin-top: 20px;
+    padding: 16px 22px;
+    border-radius: 8px;
+    display: none;
+    font-size: 16px;
+    border-left: 4px solid;
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border-left-color: var(--accent-color);
+    display: block;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-left-color: var(--danger-color);
+    display: block;
+}
+
+/* Список отчётов */
+.reports-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.report-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    background-color: #fafbfc;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s ease;
+}
+
+.report-item:hover {
+    border-color: var(--secondary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background-color: var(--white);
+}
+
+.excel-icon {
+    flex-shrink: 0;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #21a366, #185c37);
+    border-radius: 8px;
+    padding: 3px;
+    box-shadow: 0 3px 10px rgba(33, 163, 102, 0.3);
+}
+
+.excel-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.report-info {
+    flex: 1;
+}
+
+.report-name {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--primary-color);
+    font-size: 19px;
+}
+
+.report-meta {
+    font-size: 15px;
+    color: var(--text-secondary);
+}
+
+.report-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 30px;
+    color: var(--text-secondary);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.loading {
+    text-align: center;
+    padding: 60px;
+    color: var(--text-secondary);
+    font-size: 17px;
+}
+
+/* Модальные окна */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 46, 0.7);
+}
+
+.modal-content {
+    background-color: var(--white);
+    margin: 100px auto;
+    padding: 0;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 480px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+.modal-header {
+    padding: 20px 25px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px 8px 0 0;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.btn-close {
+    background: transparent;
+    border: none;
+    font-size: 26px;
+    color: var(--white);
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.btn-close:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+.modal-body {
+    padding: 25px;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+/* Анимация загрузки */
+.loading-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 26, 46, 0.85);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-overlay.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.loading-content {
+    text-align: center;
+    background-color: var(--white);
+    padding: 45px 65px;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.loading-spinner {
+    width: 65px;
+    height: 65px;
+    border: 6px solid var(--border-color);
+    border-top-color: var(--accent-color);
+    border-bottom-color: var(--secondary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 22px;
+}
+
+.loading-text {
+    font-size: 20px;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Footer */
+footer {
+    margin-top: 45px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 16px;
+    padding: 25px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .header-content {
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .logo-container {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .excel-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .language-switcher {
+        width: 100%;
+        justify-content: center;
+    }
+
+    section {
+        padding: 22px 18px;
+    }
+
+    section h2 {
+        font-size: 18px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .report-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 18px;
+    }
+
+    .report-actions {
+        width: 100%;
+    }
+
+    .report-actions .btn {
+        flex: 1;
+        font-size: 12px;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .btn-secondary {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 50px auto;
+    }
+
+    .modal-actions {
+        flex-direction: column;
+    }
+
+    .modal-actions .btn {
+        width: 100%;
+    }
+
+    .loading-content {
+        padding: 35px 45px;
+    }
+
+    .loading-spinner {
+        width: 55px;
+        height: 55px;
+    }
+
+    .loading-text {
+        font-size: 15px;
+    }
+}
